@@ -51,12 +51,14 @@ function plugin::generate_img() {
 
   (
     cd ${ROOT}/go/build
-    docker build \
+    docker buildx build \
         --network=host \
         --build-arg version=${version} \
         --build-arg commit=${commit} \
         --build-arg base_img=${base_img} \
-        -t "${IMAGE_FILE}:${version}" .
+	--platform=linux/arm,linux/arm64,linux/amd64 \
+	--push \
+        -t "rayrayrayzhang/gpu-manager:1.0.0" .
   )
 }
 
