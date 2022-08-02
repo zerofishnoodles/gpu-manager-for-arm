@@ -1,43 +1,17 @@
 # GPU Manager
 
-[![Build Status](https://travis-ci.org/tkestack/gpu-manager.svg?branch=master)](https://travis-ci.org/tkestack/gpu-manager)
+This version of GPU Manager is a Modification of tkestack GPU manager, it builds the GPU manager image based on multi-architecture. 
+To be specific, the modification lies in the build/Dockerfile and hack/build.sh
 
-GPU Manager is used for managing the nvidia GPU devices in Kubernetes cluster. It implements the `DevicePlugin` interface
-of Kubernetes. So it's compatible with 1.9+ of Kubernetes release version. 
+The original project and details can be found here: [gpu-manager](https://github.com/tkestack/gpu-manager)
 
-To compare with the combination solution of `nvidia-docker`
-and `nvidia-k8s-plugin`, GPU manager will use native `runc` without modification but nvidia solution does.
-Besides we also support metrics report without deploying new components. 
+## Usage
 
-To schedule a GPU payload correctly, GPU manager should work with [gpu-admission](https://github.com/tkestack/gpu-admission) which is a
- kubernetes scheduler plugin.
-
-GPU manager also supports the payload with fraction resource of GPU device such as 0.1 card or 100MiB gpu device memory.
-If you want this kind feature, please refer to [vcuda-controller](https://github.com/tkestack/vcuda-controller) project.
-
-## Build
-
-**1.** Build binary
-
-- Prerequisite
-   - CUDA toolkit
-    
-```
-make
-```
-
-**2.** Build image
-
-- Prerequisite
-    - Docker
-
-```
-make img
-```
+The usage can be found at [Multi-Arch GPU manager docker image setup](https://inside-docupedia.bosch.com/confluence/display/RIXICV/Multi-arch+GPU-manager+docker+image+setup+in+WSL2)
 
 ## Prebuilt image
 
-Prebuilt image can be found at `thomassong/gpu-manager`
+Prebuilt image can be found at `rayrayrayzhang/gpu-manager`
 
 ## Deploy
 
@@ -128,6 +102,9 @@ spec:
         tencent.com/vcuda-core: 200
         tencent.com/vcuda-memory: 60
 ```
+## License
+
+Distributed under the Apache License 2.0. See `LICENSE` for more information.
 
 ## FAQ
 

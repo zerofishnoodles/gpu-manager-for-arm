@@ -1,3 +1,4 @@
+# 2th August 2020 --- Modified by Rui Zhang
 ARG base_img
 FROM --platform=linux/amd64 nvidia/cuda:10.1-devel-centos7 as build
 
