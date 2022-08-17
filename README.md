@@ -103,16 +103,6 @@ spec:
         tencent.com/vcuda-memory: 60
 ```
 
-## Contributors 
-
-Rui Zhang
-
-Lilly Wu
-
-## 3rd Party Licenses
-
-Distributed under the Apache License 2.0. See `LICENSE` for more information.
-
 ## Contributors
 
 [Rui Zhang](mailto:fixed-term.rui.zhang7@cn.bosch.com)
