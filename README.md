@@ -1,6 +1,6 @@
 # GPU Manager
 
-This version of GPU Manager is a Modification of tkestack GPU manager, it builds the GPU manager image based on multi-architecture. 
+This version of GPU Manager is forked from tkestack GPU manager, it builds the GPU manager image based on multi-architecture. 
 To be specific, the modification lies in the build/Dockerfile and hack/build.sh
 
 The original project and details can be found here: [gpu-manager](https://github.com/tkestack/gpu-manager)
@@ -102,9 +102,34 @@ spec:
         tencent.com/vcuda-core: 200
         tencent.com/vcuda-memory: 60
 ```
-## License
+
+## Contributors 
+
+Rui Zhang
+
+Lilly Wu
+
+## 3rd Party Licenses
 
 Distributed under the Apache License 2.0. See `LICENSE` for more information.
+
+## Contributors
+
+[Rui Zhang](mailto:fixed-term.rui.zhang7@cn.bosch.com)
+
+[Lilly Wu](mailto:lilly.wu@cn.bosch.com)
+
+
+## 3rd Party Licenses <a name="3rd-party-licenses"></a>
+
+|Name       | License       | Type        |
+| ----------| ------------- | ----------- |
+| [tkestack/GPU-manager](https://github.com/tkestack/gpu-manager) | [Apache License 2.0](https://github.com/tkestack/gpu-manager/blob/master/LICENSE) | Source Code |
+
+
+## License
+
+[![License: BIOSL v4](http://bios.intranet.bosch.com/bioslv4-badge.svg)](#license)
 
 ## FAQ
 
