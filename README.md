@@ -119,7 +119,7 @@ spec:
 
 ## License
 
-[![License: BIOSL v4](http://bios.intranet.bosch.com/bioslv4-badge.svg)](#license)
+[![License: BIOSL v4](http://bios.intranet.bosch.com/bioslv4-badge.svg)](./LICENSE)
 
 ## FAQ
 
