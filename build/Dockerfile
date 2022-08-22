@@ -1,6 +1,5 @@
-# 2th August 2020 --- Modified by Rui Zhang
 ARG base_img
-FROM --platform=linux/amd64 nvidia/cuda:10.1-devel-centos7 as build
+FROM nvidia/cuda:11.2.0-devel-rockylinux8 as build
 
 ARG version
 ARG commit
@@ -8,18 +7,18 @@ ARG commit
 RUN yum install -y rpm-build make
 
 # default git has problems while cloning some repository
-RUN yum install -y https://repo.ius.io/ius-release-el7.rpm \
-  && yum install -y git236
+#RUN yum install -y https://repo.ius.io/ius-release-el7.rpm \
+RUN yum install -y git
 
 ENV GOLANG_VERSION 1.14.3
-RUN curl -sSL https://dl.google.com/go/go${GOLANG_VERSION}.linux-amd64.tar.gz \
+RUN curl -sSL https://dl.google.com/go/go${GOLANG_VERSION}.linux-arm64.tar.gz \
     | tar -C /usr/local -xz
 ENV GOPATH /go
 ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
 
 ENV GO111MODULE on
-
 ENV GOPROXY https://goproxy.cn,direct
+
 
 RUN mkdir -p /root/rpmbuild/{SPECS,SOURCES}
 
@@ -40,14 +39,14 @@ FROM $base_img
 ARG version
 ARG commit
 
-COPY --from=build /root/rpmbuild/RPMS/x86_64/gpu-manager-${version}-${commit}.el7.x86_64.rpm /tmp
+COPY --from=build /root/rpmbuild/RPMS/aarch64/gpu-manager-${version}-${commit}.el8.aarch64.rpm /tmp
 
 RUN yum install epel-release -y && \
   yum install -y which jq
 
 # Install packages
-RUN rpm -ivh /tmp/gpu-manager-${version}-${commit}.el7.x86_64.rpm \
-	&& rm -rf /tmp/gpu-manager-${version}-${commit}.el7.x86_64.rpm
+RUN rpm -ivh /tmp/gpu-manager-${version}-${commit}.el8.aarch64.rpm \
+	&& rm -rf /tmp/gpu-manager-${version}-${commit}.el8.aarch64.rpm
 
 # kubelet
 VOLUME ["/var/lib/kubelet/device-plugins"]
