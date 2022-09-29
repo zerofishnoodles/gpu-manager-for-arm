@@ -1,3 +1,4 @@
-[submodule "vcuda-controller"]
-	path = vcuda-controller
-	url = https://github.com/tkestack/vcuda-controller.git
+
+[submodule "vcuda-controller-for-arm"]
+	path = vcuda-controller-for-arm
+	url = https://github.com/zerofishnoodles/vcuda-controller-for-arm.git
